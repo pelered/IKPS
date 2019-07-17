@@ -43,6 +43,8 @@ def get_data_with_salinity(mode):
     
     if mode =='evaluacija':
         return data_with_salinity,salinity_result
+    if mode=='evaluacija-bin-slanoca-bez':
+        return data_with_salinity,salinity_bin_result
     
     #sa suhim danima
     data_with_salinity2 = []
@@ -72,6 +74,8 @@ def get_data_with_salinity(mode):
 
     if mode =='evaluacija-suhi':
         return data_with_salinity2,salinity_result2
+    if mode=='evaluacija-bin-slanoca-sa':
+        return data_with_salinity2,salinity_bin_result2
 
     # if only data is wanted, do not run model creation
     if mode == 'data':
@@ -340,7 +344,10 @@ def get_data_for_double_time(mode):
     
     result_data_bin = double_time_result_bin[2*int(len(double_time)/3+1):]
 
-
+    if mode=='evaluacija':
+        return double_time,double_time_result
+    if mode=='evaluacija-bin':
+        return double_time,double_time_result_bin
 
 
     if mode == 'data':
@@ -595,6 +602,8 @@ def get_data_for_original_model(mode):
 
     if mode =='evaluacija':
         return original_data,original_data_result
+    if mode=="evaluacija-bin-bez":
+        return original_data,original_data_result_bin
     #sa suhim danima
     data2= pd.read_excel(io='All_data(svi21.7).xlsx', sheet_name='Obicno-suhi')
     #print(data2)
@@ -622,7 +631,8 @@ def get_data_for_original_model(mode):
 
     if mode =='evaluacija-suhi':
         return original_data2,original_data_result2
-
+    if mode=="evaluacija-bin-suhi":
+        return original_data2,original_data_result_bin2
 
     if mode == 'data':
         return X, Y, predict_data
