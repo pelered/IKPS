@@ -538,7 +538,7 @@ def get_data_for_original_leave_one(mode):
             X_t=X[[i],:]
             X=np.delete(X,(i),axis=0)
             y_t=Y_bin[i]
-            Y_bin=np.delete(Y,i,axis=0)    
+            Y_bin=np.delete(Y_bin,i,axis=0)    
             classification_tree_prediction_bez = classification_tree.fit(X, Y_bin).predict(X_t)
             test_result.append(classification_tree_prediction_bez)
             X = np.insert(X, i, X_t, axis = 0) 
