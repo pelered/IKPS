@@ -24,7 +24,7 @@ names = []
 print("Original data, sa suhim,1/3+2/3-binarno")
 for name, model in models:
     kfold = model_selection.KFold(n_splits=3, random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
@@ -45,7 +45,7 @@ names = []
 print("Original data, sa suhim,leave one out-binarno")
 for name, model in models:
     kfold = model_selection.KFold(n_splits=len(X), random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results2.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
