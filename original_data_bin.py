@@ -32,7 +32,7 @@ print("Evaluacija binarnog bez slanoce")
 print("\nBez suhih 1/3+2/3 ")
 for name, model in models:
     kfold = model_selection.KFold(n_splits=3, random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
@@ -51,7 +51,7 @@ results2 = []
 names =[]
 for name, model in models:
     kfold = model_selection.KFold(n_splits=len(X), random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results2.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
@@ -73,7 +73,7 @@ results3 = []
 names=[]
 for name, model in models:
     kfold = model_selection.KFold(n_splits=3, random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results3.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
@@ -93,7 +93,7 @@ print("\nSa suhih leave one put ")
 
 for name, model in models:
     kfold = model_selection.KFold(n_splits=len(X), random_state=seed)
-    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='accuracy')
+    cv_results = model_selection.cross_val_score(model, X, Y, cv=kfold, scoring='f1')
     results4.append(cv_results)
     names.append(name)
     print('{}: mean {} std({})'.format(name,
